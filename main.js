@@ -42,5 +42,42 @@ exitAccount: function () {
 
 //ATM function
 function atm() {
+    let exit = false;
+
+    while (!exit) {
+
+        console.log('
+           Welcome to the ATM.Choose an option:
+           1. View Account balance
+           2. Deposit Money
+           3. Withdraw Money
+           4. View Account Holder's Name
+           5.Exit
+           ');'
+
+    const choice = prompt("Enter your choice (1-5):");
     
+    switch (choice) {
+        case "1":
+            account.getBalance();
+            break;
+        case "2":
+            const depositAmount = parseFloat(prompt("Enter ammount to deposit:"));
+            account.deposit(depositAmount);
+            break;
+        case "3":
+            const withdrawAmount = parseFloat(prompt("Enter amount to withdraw:"));
+            account.withdrawal(withdrawAccount);
+            break;
+        case "4":
+            account.getAccountName();
+            break;
+        case "5":
+            account.exitAccount();
+            exit = true;
+            break;
+        default:
+            account.accountError("Invalid choice. Please try again.");
+        }
+    }
 }
